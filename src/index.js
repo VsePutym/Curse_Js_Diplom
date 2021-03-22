@@ -6,7 +6,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable strict */
 
-import test from './modules/test';
+import chooseGym from './modules/chooseGym';
 
-test();
+chooseGym();
 
