@@ -21,15 +21,12 @@ const chooseGym = () => {
     if (width > 768) {
         document.addEventListener('click', e => {
             if (!e.target.classList.contains('clubSelect')) {
-                const target = e.target;
-                console.log(target);
                 changeGym.style.display = 'block';
                 count = 60;
                 changeinterval = requestAnimationFrame(showGym);
             }
             if (!e.target.matches('.club-select')) {
                 const liTarget = e.target.closest('.club-select');
-                console.log(liTarget);
                 if (liTarget === null) {
                     changeGym.style.display = 'none';
                 }
