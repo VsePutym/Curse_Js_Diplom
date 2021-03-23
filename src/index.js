@@ -7,6 +7,7 @@
 /* eslint-disable strict */
 
 import chooseGym from './modules/chooseGym';
-// import showPopup from './modules/togglePopup';
+import showPopup from './modules/togglePopup';
 
 chooseGym();
+showPopup();
