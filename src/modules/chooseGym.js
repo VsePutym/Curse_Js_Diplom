@@ -6,7 +6,7 @@ const chooseGym = () => {
     let count = 60;
 
     let changeinterval;
-    const showGym = function () {
+    const showGym = function() {
         changeinterval = requestAnimationFrame(showGym);
         count++;
         if (count < 110) {
@@ -25,17 +25,27 @@ const chooseGym = () => {
                 count = 60;
                 changeinterval = requestAnimationFrame(showGym);
             }
-            if (!e.target.matches('.club-select')) {
+            if (!e.target.matches('.form-content')) {
                 const liTarget = e.target.closest('.club-select');
                 if (liTarget === null) {
                     changeGym.style.display = 'none';
                 }
             }
         });
-    } else {
-        clubSelect.addEventListener('click', () => {
+    } if (width < 768) {
+        document.addEventListener('click', e => {
+            changeGym.style.top = 50 + 'px';
             changeGym.style.display = 'block';
+            console.log(e.target);
+            if (!e.target.matches('.form-content')) {
+                const liTarget = e.target.closest('.club-select');
+                console.log(e.target);
+                if (liTarget === null) {
+                    changeGym.style.display = 'none';
+                }
+            }
         });
+
     }
 };
 
