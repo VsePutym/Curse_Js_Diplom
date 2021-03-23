@@ -36,10 +36,8 @@ const chooseGym = () => {
         document.addEventListener('click', e => {
             changeGym.style.top = 50 + 'px';
             changeGym.style.display = 'block';
-            console.log(e.target);
             if (!e.target.matches('.form-content')) {
                 const liTarget = e.target.closest('.club-select');
-                console.log(e.target);
                 if (liTarget === null) {
                     changeGym.style.display = 'none';
                 }
