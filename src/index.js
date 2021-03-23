@@ -8,6 +8,8 @@
 
 import chooseGym from './modules/chooseGym';
 import showPopup from './modules/togglePopup';
+import sendForm from './modules/sendForm';
 
+sendForm();
 chooseGym();
 showPopup();

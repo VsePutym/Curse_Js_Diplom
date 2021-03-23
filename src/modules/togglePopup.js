@@ -5,6 +5,9 @@ const showPopup = () => {
     const callbackForm = document.getElementById('callback_form');
     const wrapperVisit = freeVisitForm.querySelector('.form-wrapper');
     const wrapperCall = callbackForm.querySelector('.form-wrapper');
+    const formText = document.querySelectorAll('.form-text');
+    const wrapperInputs = document.querySelectorAll('.wrapper-inputs');
+    const checkbox = document.querySelectorAll('input[type="checkbox"]');
     const width = document.documentElement.clientWidth;
 
     let count = 50;
@@ -22,8 +25,19 @@ const showPopup = () => {
                     wrapperVisit.style.top = 11 + '%';
                 }
             }
-        } else {
+        } else if (e.target.classList.contains('overlay')) {
             freeVisitForm.style.display = 'none';
+            formText.forEach(item => {
+                item.value = '';
+                const status = document.querySelector('.status');
+                status.textContent = '';
+            });
+            checkbox.forEach(item => {
+                item.checked = false;
+            });
+            wrapperInputs.forEach(item => {
+                item.style.display = 'block';
+            });
         }
         if (e.target.matches('.callback-btn')) {
             const target = e.target;
@@ -37,8 +51,19 @@ const showPopup = () => {
                     wrapperCall.style.top = 11 + '%';
                 }
             }
-        } else {
+        } else if (e.target.classList.contains('overlay')) {
             callbackForm.style.display = 'none';
+            formText.forEach(item => {
+                item.value = '';
+                const status = document.querySelector('.status');
+                status.textContent = '';
+            });
+            checkbox.forEach(item => {
+                item.checked = false;
+            });
+            wrapperInputs.forEach(item => {
+                item.style.display = 'block';
+            });
         }
 
         if (!e.target.matches('.form-content')) {
@@ -46,6 +71,17 @@ const showPopup = () => {
             if (closeTarget) {
                 freeVisitForm.style.display = 'none';
                 callbackForm.style.display = 'none';
+                wrapperInputs.forEach(item => {
+                    item.style.display = 'block';
+                });
+                formText.forEach(item => {
+                    item.value = '';
+                    const status = document.querySelector('.status');
+                    status.textContent = '';
+                    checkbox.forEach(item => {
+                        item.checked = false;
+                    });
+                });
             }
         }
     });
