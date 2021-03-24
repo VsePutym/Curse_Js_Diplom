@@ -9,16 +9,39 @@ const sendForm = () => {
     const successMessage = 'отправлено';
     const forName = document.querySelectorAll('.form-name');
     const forTel = document.querySelectorAll('.form-tel');
+    const checkbox = document.querySelectorAll('input[type="checkbox"]');
     const wrapperInputs = document.querySelectorAll('.wrapper-inputs');
+    const formText = document.querySelectorAll('.form-text');
+    const chooseClub = document.querySelectorAll('.check-footer');
+    const cardOrder = document.getElementById('card_order');
+    const bannerForm = document.getElementById('banner-form');
+    console.log(cardOrder);
+
 
     const statusMessage = document.createElement('div');
     statusMessage.classList.add('status');
-    statusMessage.style.cssText = `font-size: 2rem;
-    color: #fff; transform: translateY(200%);`;
+    statusMessage.style.cssText = `
+    color: #ffd11a;
+    display: contents;
+    transform: translateY(200%);
+    font-size: 2rem;
+    text-align: center;`;
 
     let validName = false;
     let validPhone = false;
+    let validCheckbox = false;
 
+    const resetModal = () => {
+        formText.forEach(item => { //? очищаем инпуты
+            item.value = '';
+        });
+        checkbox.forEach(item => { //? обнуляем чекбоксы
+            item.checked = false;
+        });
+        wrapperInputs.forEach(item => { //? возвращаем поля инпут
+            item.style.display = 'block';
+        });
+    };
 
     forName.forEach(item => {
         item.addEventListener('input', event => {
@@ -36,6 +59,17 @@ const sendForm = () => {
             }
         });
     });
+
+    checkbox.forEach((item => {
+        item.addEventListener('click', () => {
+            if (item.checked === true) {
+                validCheckbox = true;
+            } else {
+                validCheckbox = false;
+            }
+        });
+    }));
+
 
     forTel.forEach(item => {
         item.addEventListener('input', event => {
@@ -59,28 +93,70 @@ const sendForm = () => {
     });
 
     form.forEach(item => {
+        console.log(item);
         item.addEventListener('submit', event => {
             event.preventDefault();
 
-            if (validName && validPhone) {
-                item.appendChild(statusMessage);
-                wrapperInputs.forEach(item => {
-                    item.style.display = 'none';
-                });
+            const formCall = document.getElementById('footer_form');
+            if (event.target === formCall) {
+                chooseClub.forEach((item => {
+                    if (item.checked === true) {
+                        validCheckbox = true;
+                        validName = true;
+                    }
+                }));
+            }
+            const target = event.target;
+            if (validPhone === true && validCheckbox === true && validName === true) {
+                console.log(validName);
+                console.log(validPhone);
+                console.log(validCheckbox);
 
+                target.appendChild(statusMessage);
+                statusMessage.style.display = 'contents';
                 statusMessage.textContent = loadMessage;
 
-                const formData = new FormData(item);
+                const formData = new FormData(target); //? Принимаем форму
 
                 postData(formData)
                     .then(response => {
                         if (response.status !== 200) {
                             throw new Error('status network not 200.');
                         }
+                        if (target !== formCall && target !== cardOrder && target !== bannerForm) { //! if target not modal window 
+                            wrapperInputs.forEach(item => { //? скрываем с модалки контент
+                                item.style.display = 'none';
+                                statusMessage.style.display = 'block';
+                            });
+                        } else {
+                            statusMessage.style.display = 'contents';
+                        }
                         statusMessage.textContent = successMessage;
+                        setTimeout(() => {
+                            statusMessage.remove();
+                            wrapperInputs.forEach(item => {
+                                item.style.display = 'block';
+                            });
+                            resetModal();
+                        }, 2000);
                     })
                     .catch(error => {
+                        if (target !== formCall && target !== cardOrder && target !== bannerForm) { //! if target not modal window 
+                            wrapperInputs.forEach(item => { //? скрываем с модалки контент
+                                item.style.display = 'none';
+                                statusMessage.style.display = 'block';
+                            });
+                        } else {
+                            statusMessage.style.display = 'contents';
+                        }
                         statusMessage.textContent = errorMessage;
+                        setTimeout(() => {
+                            statusMessage.remove();
+                            wrapperInputs.forEach(item => {
+                                item.style.display = 'block';
+                            });
+                            resetModal();
+                        }, 2000);
                         console.error(error);
                     });
             }
