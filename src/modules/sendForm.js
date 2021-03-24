@@ -15,8 +15,6 @@ const sendForm = () => {
     const chooseClub = document.querySelectorAll('.check-footer');
     const cardOrder = document.getElementById('card_order');
     const bannerForm = document.getElementById('banner-form');
-    console.log(cardOrder);
-
 
     const statusMessage = document.createElement('div');
     statusMessage.classList.add('status');
@@ -93,7 +91,7 @@ const sendForm = () => {
     });
 
     form.forEach(item => {
-        console.log(item);
+        
         item.addEventListener('submit', event => {
             event.preventDefault();
 
@@ -108,9 +106,6 @@ const sendForm = () => {
             }
             const target = event.target;
             if (validPhone === true && validCheckbox === true && validName === true) {
-                console.log(validName);
-                console.log(validPhone);
-                console.log(validCheckbox);
 
                 target.appendChild(statusMessage);
                 statusMessage.style.display = 'contents';
