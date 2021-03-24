@@ -91,7 +91,7 @@ const sendForm = () => {
     });
 
     form.forEach(item => {
-        
+
         item.addEventListener('submit', event => {
             event.preventDefault();
 
@@ -118,7 +118,7 @@ const sendForm = () => {
                         if (response.status !== 200) {
                             throw new Error('status network not 200.');
                         }
-                        if (target !== formCall && target !== cardOrder && target !== bannerForm) { //! if target not modal window 
+                        if (target !== formCall && target !== cardOrder && target !== bannerForm) { //! if target not modal window
                             wrapperInputs.forEach(item => { //? скрываем с модалки контент
                                 item.style.display = 'none';
                                 statusMessage.style.display = 'block';
@@ -136,7 +136,7 @@ const sendForm = () => {
                         }, 2000);
                     })
                     .catch(error => {
-                        if (target !== formCall && target !== cardOrder && target !== bannerForm) { //! if target not modal window 
+                        if (target !== formCall && target !== cardOrder && target !== bannerForm) { //! if target not modal window
                             wrapperInputs.forEach(item => { //? скрываем с модалки контент
                                 item.style.display = 'none';
                                 statusMessage.style.display = 'block';
