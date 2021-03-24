@@ -15,6 +15,7 @@ const sendForm = () => {
     const chooseClub = document.querySelectorAll('.check-footer');
     const cardOrder = document.getElementById('card_order');
     const bannerForm = document.getElementById('banner-form');
+    const popup = document.querySelectorAll('.popup');
 
     const statusMessage = document.createElement('div');
     statusMessage.classList.add('status');
@@ -104,6 +105,47 @@ const sendForm = () => {
                     }
                 }));
             }
+
+            const formclubsCart = document.getElementById('card_order');
+            const clubsCartCheck = document.querySelector('.check_club-cards');
+            if (event.target === formclubsCart) {
+                if (clubsCartCheck.checked === true) {
+                    validCheckbox = true;
+                } else {
+                    validCheckbox = false;
+                }
+            }
+
+            const form2 = document.getElementById('form2'); //? freeVisit
+            const check2 = document.getElementById('check2');
+            if (event.target === form2) {
+                if (check2.checked === true) {
+                    validCheckbox = true;
+                } else {
+                    validCheckbox = false;
+                }
+            }
+
+            const form1 = document.getElementById('form1'); //? модалка перезвоните
+            const check = document.getElementById('check');
+            if (event.target === form1) {
+                if (check.checked === true) {
+                    validCheckbox = true;
+                } else {
+                    validCheckbox = false;
+                }
+            }
+
+            const bannerForm = document.getElementById('banner-form'); //? Банер форма отправки
+            const check1 = document.getElementById('check1');
+            if (event.target === bannerForm) {
+                if (check1.checked === true) {
+                    validCheckbox = true;
+                } else {
+                    validCheckbox = false;
+                }
+            }
+
             const target = event.target;
             if (validPhone === true && validCheckbox === true && validName === true) {
 
@@ -129,8 +171,8 @@ const sendForm = () => {
                         statusMessage.textContent = successMessage;
                         setTimeout(() => {
                             statusMessage.remove();
-                            wrapperInputs.forEach(item => {
-                                item.style.display = 'block';
+                            popup.forEach(item => {
+                                item.style.display = 'none';
                             });
                             resetModal();
                         }, 2000);
@@ -147,8 +189,8 @@ const sendForm = () => {
                         statusMessage.textContent = errorMessage;
                         setTimeout(() => {
                             statusMessage.remove();
-                            wrapperInputs.forEach(item => {
-                                item.style.display = 'block';
+                            popup.forEach(item => {
+                                item.style.display = 'none';
                             });
                             resetModal();
                         }, 2000);

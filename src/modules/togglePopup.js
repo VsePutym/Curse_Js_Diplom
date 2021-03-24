@@ -62,9 +62,18 @@ const showPopup = () => {
             resetModal();
         }
 
-        if (e.target.matches('.present')) { //! Работаем с модалкой подарка
-            gift.style.display = 'block';
-            popupAnimate = requestAnimationFrame(showPopup);
+        if (e.target.matches('.present')) { //! Работаем с модалкой подарка       
+            const target = e.target;
+            if (target) {
+                if (width > 768) {
+                    gift.style.display = 'block';
+                    count = 50;
+                    popupAnimate = requestAnimationFrame(showPopup);
+                } else if (width < 768) {
+                    gift.style.display = 'block';
+                    wrapperPresent.style.top = 11 + '%';
+                }
+            }
         } else if (e.target.classList.contains('overlay-present')) { //? если нажимаем мышкой в не поля модалки, она уходит в инвиз
             gift.style.display = 'none';
             present.style.display = 'none';
