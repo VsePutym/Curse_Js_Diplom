@@ -1,6 +1,5 @@
 /* eslint-disable eol-last */
 const chooseGym = () => {
-    const clubSelect = document.querySelector('.club-select');
     const changeGym = document.getElementById('changeGym');
     const width = document.documentElement.clientWidth;
     let count = 60;
@@ -20,12 +19,12 @@ const chooseGym = () => {
 
     if (width > 768) {
         document.addEventListener('click', e => {
-            if (!e.target.classList.contains('clubSelect')) {
+            if (e.target.matches('.clubs')) {
                 changeGym.style.display = 'block';
                 count = 60;
                 changeinterval = requestAnimationFrame(showGym);
             }
-            if (!e.target.matches('.form-content')) {
+            if (!e.target.matches('.club-select')) {
                 const liTarget = e.target.closest('.club-select');
                 if (liTarget === null) {
                     changeGym.style.display = 'none';
