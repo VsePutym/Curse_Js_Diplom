@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-use-before-define */
 /* eslint-disable eol-last */
 /* eslint-disable max-len */
@@ -236,7 +237,7 @@ const sendForm = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: formData
+            body: JSON.stringify(formData)
         });
     };
 };

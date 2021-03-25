@@ -30,7 +30,6 @@ const servicesSlider = () => {
 
     document.addEventListener('click', e => {
         const target = e.target;
-        console.log(target);
         if (target.closest('.prev')) {
             if (marginLeft < minSlide) {
                 marginLeft += 225;
@@ -43,8 +42,6 @@ const servicesSlider = () => {
                 activeSlide.style.marginLeft = `${marginLeft}px`;
             }
         }
-
-        console.log(marginLeft);
     });
 
 

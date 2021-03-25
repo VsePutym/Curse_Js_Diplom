@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /* eslint-disable semi */
@@ -11,6 +12,7 @@ import showPopup from './modules/togglePopup';
 import sendForm from './modules/sendForm';
 import mainSlider from './modules/mainSlider';
 import servicesSlider from './modules/servicesSlider';
+import photoGallary from './modules/photoGallary';
 
 
 
@@ -19,4 +21,4 @@ chooseGym();
 showPopup();
 mainSlider();
 servicesSlider();
-
+photoGallary();

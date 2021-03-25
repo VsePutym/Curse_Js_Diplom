@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable eol-last */
 const mainSlider = () => {
     const mainSlider = document.querySelector('.main-slider');
@@ -12,12 +13,12 @@ const mainSlider = () => {
 
     let currentSlide = 0; //?  это номер слайда
 
-    const prevSlide = (elem, i, strClass) => {
-        elem[i].classList.remove(strClass);
+    const prevSlide = (elem, i) => {
+        elem[i].style.display = 'none';
     };
 
-    const nextSlide = (elem, i, strClass) => {
-        elem[i].classList.add(strClass);
+    const nextSlide = (elem, i) => {
+        elem[i].style.display = 'block';
     };
 
     const autoPlaySlide = () => {
@@ -36,6 +37,5 @@ const mainSlider = () => {
 
     startSlide(2000);
 };
-
 
 export default mainSlider;
