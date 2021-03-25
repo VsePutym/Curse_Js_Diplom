@@ -1,7 +1,8 @@
+/* eslint-disable eol-last */
 const mainSlider = () => {
     const mainSlider = document.querySelector('.main-slider');
     const slide = document.body.querySelectorAll('.slide');
-    
+
     mainSlider.style.cssText = `
     height: 100%;
     max-height: 541px;
@@ -10,14 +11,13 @@ const mainSlider = () => {
 
 
     let currentSlide = 0; //?  это номер слайда
-    let interval;
 
-    const prevSlide = (elem, i) => {
-        elem[i].style.display = 'none';
+    const prevSlide = (elem, i, strClass) => {
+        elem[i].classList.remove(strClass);
     };
 
-    const nextSlide = (elem, i) => {
-        elem[i].style.display = 'block';
+    const nextSlide = (elem, i, strClass) => {
+        elem[i].classList.add(strClass);
     };
 
     const autoPlaySlide = () => {

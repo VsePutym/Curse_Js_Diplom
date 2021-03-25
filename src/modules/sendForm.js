@@ -93,7 +93,7 @@ const sendForm = () => {
         });
     }));
 
-    //!Регулярки для проверки инпутов 
+    //!Регулярки для проверки инпутов
 
     forName.forEach(item => {
         item.addEventListener('input', event => {

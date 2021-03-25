@@ -10,9 +10,13 @@ import chooseGym from './modules/chooseGym';
 import showPopup from './modules/togglePopup';
 import sendForm from './modules/sendForm';
 import mainSlider from './modules/mainSlider';
+import servicesSlider from './modules/servicesSlider';
+
+
 
 sendForm();
 chooseGym();
 showPopup();
 mainSlider();
+servicesSlider();
 
