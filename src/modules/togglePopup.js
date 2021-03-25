@@ -2,6 +2,7 @@
 /* eslint-disable eol-last */
 /* eslint-disable no-use-before-define */
 
+
 const showPopup = () => {
     const freeVisitForm = document.getElementById('free_visit_form'); //! Модалка на визит
     const callbackForm = document.getElementById('callback_form'); //! модалка на перезвон
@@ -13,23 +14,35 @@ const showPopup = () => {
     const wrapperInputs = document.querySelectorAll('.wrapper-inputs'); //? wrapper modal windows for delete content modal
     const gift = document.getElementById('gift');
     const present = document.querySelector('.present');
+    const thanks = document.getElementById('thanks');
     const width = document.documentElement.clientWidth; //? ширина экрана
     let count = 50;
 
-    const resetModal = () => {
-        formText.forEach(item => { //? очищаем инпуты
-            item.value = '';
-        });
-        checkbox.forEach(item => { //? обнуляем чекбоксы
-            item.checked = false;
-        });
-        wrapperInputs.forEach(item => { //? возвращаем поля инпут
-            item.style.display = 'block';
-        });
-    };
 
     document.addEventListener('click', e => {
-        if (e.target.matches('.open-popup')) {
+        const messageChecked = document.querySelector('.status-cheked');
+
+        const resetModal = () => {
+            formText.forEach(item => { //? очищаем инпуты
+                item.value = '';
+            });
+
+            checkbox.forEach(item => { //? обнуляем чекбоксы
+                item.checked = false;
+            });
+
+            freeVisitForm.style.display = 'none'; //? уводим в инвиз форму freeVisit
+            callbackForm.style.display = 'none'; //? уводим в инвиз форму call
+            thanks.style.display = 'none'; //? уводим в инвиз форму thaks
+            gift.style.display = 'none'; //? уводим в инвиз форму preset
+
+            if (messageChecked) {
+                messageChecked.remove();
+            }
+
+        };
+
+        if (e.target.matches('.open-popup')) { //? form freeVisit
             const target = e.target;
             if (target) {
                 if (width > 768) {
@@ -41,11 +54,9 @@ const showPopup = () => {
                     wrapperVisit.style.top = 11 + '%';
                 }
             }
-        } else if (e.target.classList.contains('overlay')) { //? если нажимаем мышкой в не поля модалки, она уходит в инвиз
-            freeVisitForm.style.display = 'none';
-            resetModal();
         }
-        if (e.target.matches('.callback-btn')) {
+
+        if (e.target.matches('.callback-btn')) { //? form call me
             const target = e.target;
             if (target) {
                 if (width > 768) {
@@ -57,16 +68,14 @@ const showPopup = () => {
                     wrapperCall.style.top = 11 + '%';
                 }
             }
-        } else if (e.target.classList.contains('overlay')) { //? если нажимаем мышкой в не поля модалки, она уходит в инвиз
-            callbackForm.style.display = 'none';
-            resetModal();
         }
 
-        if (e.target.matches('.present')) { //! Работаем с модалкой подарка       
+        if (e.target.matches('.present')) { //! Работаем с модалкой подарка
             const target = e.target;
             if (target) {
                 if (width > 768) {
                     gift.style.display = 'block';
+                    present.style.display = 'none';
                     count = 50;
                     popupAnimate = requestAnimationFrame(showPopup);
                 } else if (width < 768) {
@@ -74,22 +83,19 @@ const showPopup = () => {
                     wrapperPresent.style.top = 11 + '%';
                 }
             }
-        } else if (e.target.classList.contains('overlay-present')) { //? если нажимаем мышкой в не поля модалки, она уходит в инвиз
-            gift.style.display = 'none';
-            present.style.display = 'none';
-        } else if (e.target.matches('.close-present')) {
-            gift.style.display = 'none';
-            present.style.display = 'none';
-        } else if (e.target.matches('.close-ok')) {
-            gift.style.display = 'none';
-            present.style.display = 'none';
+        }
+
+        if (e.target.matches('.close-btn')) { //? нажимаем на ok и форма уходит в инвиз
+            resetModal();
+        }
+
+        if (e.target.matches('.overlay')) { //? если нажимаем мышкой в не поля модалки, она уходит в инвиз
+            resetModal();
         }
 
         if (!e.target.matches('.form-content')) {
             const closeTarget = e.target.closest('.close_icon'); //? если клик по крестику делаем reset
             if (closeTarget) {
-                freeVisitForm.style.display = 'none'; //? уводим в инвиз форму
-                callbackForm.style.display = 'none'; //? уводим в инвиз форму
                 resetModal();
             }
         }
