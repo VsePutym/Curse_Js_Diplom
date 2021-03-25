@@ -13,7 +13,7 @@ import sendForm from './modules/sendForm';
 import mainSlider from './modules/mainSlider';
 import servicesSlider from './modules/servicesSlider';
 import photoGallary from './modules/photoGallary';
-
+import calc from './modules/calc';
 
 
 sendForm();
@@ -22,3 +22,4 @@ showPopup();
 mainSlider();
 servicesSlider();
 photoGallary();
+calc();
