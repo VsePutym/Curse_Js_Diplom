@@ -1392,7 +1392,7 @@ nav.popup-menu .close-menu-btn img {
     float: left
 }
 
-.slider-dots li button {
+.slider-dots li  {
     width: 22px;
     height: 4px;
     background-color: #fff;
@@ -1402,7 +1402,7 @@ nav.popup-menu .close-menu-btn img {
     margin-right: 5px
 }
 
-.slider-dots li.slick-active button {
+.slider-dots li.slick-active  {
     background-color: #ffd11a
 }
 
@@ -1613,9 +1613,14 @@ nav.popup-menu .close-menu-btn img {
     text-align: center
 }
 
+#gallery .gallery-slider .slide.slick-active {
+    display: block;
+}
+
 #gallery .gallery-slider .slide {
     margin: 0 auto !important;
-    width: 100%
+    width: 100%;
+    display: none;
 }
 
 #gallery .gallery-slider .slider-arrow {
@@ -1641,6 +1646,14 @@ nav.popup-menu .close-menu-btn img {
 }
 
 #gallery .gallery-slider .slider-arrow.next {
+    right: 0
+}
+
+#gallery .gallery-slider .slider-arrow.prev-g {
+    left: 0
+}
+
+#gallery .gallery-slider .slider-arrow.next-g {
     right: 0
 }
 

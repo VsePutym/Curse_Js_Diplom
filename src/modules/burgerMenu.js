@@ -2,17 +2,17 @@
 /* eslint-disable prefer-const */
 const burgerMenu = () => {
     const popupMenu = document.querySelector('.popup-menu');
-    const burger = document.querySelector('.iconBurger');
     const arrowUp = document.getElementById('totop');
+    const topMenu = document.querySelector('.top-menu');
 
     arrowUp.style.display = 'none';
 
     document.addEventListener('scroll', () => {
         let scrollTop = document.documentElement.scrollTop;
         if (scrollTop >= 200) {
-            burger.style.cssText = `position: fixed; z-index: 99999; margin-left: -40px; top: 120px;`;
+            topMenu.style.cssText = `position: fixed;`;
         } else {
-            burger.style.cssText = 'position: relative; top: 0px;';
+            topMenu.style.cssText = 'position: relative;';
         }
         if (scrollTop >= 300) {
             arrowUp.style.display = 'block';

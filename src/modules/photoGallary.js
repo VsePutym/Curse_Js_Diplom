@@ -29,6 +29,11 @@ const photoGallary = () => {
         if (item) {
             appData.addNewClass();
         }
+        // if (item.closest('.slide slider-gallery slick-active')) {
+        //     item.style.display = 'block';
+        // } else {
+        //     item.style.display = 'none';
+        // }
     });
 
     const dot = document.querySelectorAll('.dot');
@@ -38,25 +43,25 @@ const photoGallary = () => {
     let interval;
 
     const prevSlide = (elem, i, strClass) => {
-        elem[i].style.display = 'none';
+        // elem[i].style.display = 'none';
         elem[i].classList.remove(strClass);
     };
 
     const nextSlide = (elem, i, strClass) => {
-        elem[i].style.display = 'block';
+        // elem[i].style.display = 'block';
         elem[i].classList.add(strClass);
     };
 
     const autoPlaySlide = () => {
         const dot = document.querySelectorAll('.dot');
 
-        prevSlide(slide, currentSlide, 'slide');
+        prevSlide(slide, currentSlide, 'slick-active');
         prevSlide(dot, currentSlide, 'slick-active');
         currentSlide++;
         if (currentSlide >= slide.length) {
             currentSlide = 0;
         }
-        nextSlide(slide, currentSlide, 'slide');
+        nextSlide(slide, currentSlide, 'slick-active');
         nextSlide(dot, currentSlide, 'slick-active');
     };
 
@@ -68,6 +73,8 @@ const photoGallary = () => {
         clearInterval(interval);
     };
 
+
+
     slider.addEventListener('click', e => { //? Слушаем слайдер
         const dot = document.querySelectorAll('.dot');
 
@@ -78,12 +85,12 @@ const photoGallary = () => {
             return;
         }
 
-        prevSlide(slide, currentSlide, 'gallery-slider');
+        prevSlide(slide, currentSlide, 'slick-active');
         prevSlide(dot, currentSlide, 'slick-active');
-        if (target.closest('.next')) { //? минусуем или плюсуем счётчик
+        if (target.closest('.next-g')) { //? минусуем или плюсуем счётчик
             currentSlide++;
         }
-        if (target.closest('.prev')) {
+        if (target.closest('.prev-g')) {
             currentSlide--;
         } else if (target.matches('.dot')) {
             dot.forEach((elem, index) => {
@@ -98,7 +105,7 @@ const photoGallary = () => {
         if (currentSlide < 0) {
             currentSlide = slide.length - 1;
         }
-        nextSlide(slide, currentSlide, 'gallery-slider');
+        nextSlide(slide, currentSlide, 'slick-active');
         nextSlide(dot, currentSlide, 'slick-active');
     });
 
