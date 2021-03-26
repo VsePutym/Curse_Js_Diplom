@@ -4,22 +4,26 @@ const burgerMenu = () => {
     const popupMenu = document.querySelector('.popup-menu');
     const arrowUp = document.getElementById('totop');
     const topMenu = document.querySelector('.top-menu');
+    const width = document.documentElement.clientWidth; //? ширина экрана
 
     arrowUp.style.display = 'none';
 
-    document.addEventListener('scroll', () => {
-        let scrollTop = document.documentElement.scrollTop;
-        if (scrollTop >= 200) {
-            topMenu.style.cssText = `position: fixed;`;
-        } else {
-            topMenu.style.cssText = 'position: relative;';
-        }
-        if (scrollTop >= 300) {
-            arrowUp.style.display = 'block';
-        } else {
-            arrowUp.style.display = 'none';
-        }
-    });
+    if (width < 768) {
+        document.addEventListener('scroll', () => {
+            let scrollTop = document.documentElement.scrollTop;
+            if (scrollTop >= 200) {
+                topMenu.style.cssText = `position: fixed;`;
+            } else {
+                topMenu.style.cssText = 'position: relative;';
+            }
+            if (scrollTop >= 300) {
+                arrowUp.style.display = 'block';
+            } else {
+                arrowUp.style.display = 'none';
+            }
+        });
+    }
+
 
 
     document.addEventListener('click', e => {
