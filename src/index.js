@@ -14,6 +14,7 @@ import mainSlider from './modules/mainSlider';
 import servicesSlider from './modules/servicesSlider';
 import photoGallary from './modules/photoGallary';
 import calc from './modules/calc';
+import burgerMenu from './modules/burgerMenu';
 
 
 sendForm();
@@ -23,3 +24,4 @@ mainSlider();
 servicesSlider();
 photoGallary();
 calc();
+burgerMenu();

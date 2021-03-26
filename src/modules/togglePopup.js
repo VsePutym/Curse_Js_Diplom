@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable max-len */
 /* eslint-disable eol-last */
 /* eslint-disable no-use-before-define */
@@ -11,7 +12,6 @@ const showPopup = () => {
     const wrapperPresent = document.querySelector('.wrapper-present'); //* for animate present modal
     const formText = document.querySelectorAll('.form-text'); //? inputs with text
     const checkbox = document.querySelectorAll('input[type="checkbox"]'); //? checkbox
-    const wrapperInputs = document.querySelectorAll('.wrapper-inputs'); //? wrapper modal windows for delete content modal
     const gift = document.getElementById('gift');
     const present = document.querySelector('.present');
     const thanks = document.getElementById('thanks');
@@ -33,7 +33,7 @@ const showPopup = () => {
 
             freeVisitForm.style.display = 'none'; //? уводим в инвиз форму freeVisit
             callbackForm.style.display = 'none'; //? уводим в инвиз форму call
-            thanks.style.display = 'none'; //? уводим в инвиз форму thaks
+            thanks.style.display = 'none'; //? уводим в инвиз форму thanks
             gift.style.display = 'none'; //? уводим в инвиз форму preset
 
             if (messageChecked) {
@@ -80,6 +80,7 @@ const showPopup = () => {
                     popupAnimate = requestAnimationFrame(showPopup);
                 } else if (width < 768) {
                     gift.style.display = 'block';
+                    present.style.display = 'none';
                     wrapperPresent.style.top = 11 + '%';
                 }
             }

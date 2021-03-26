@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable eol-last */
 const servicesSlider = () => {
     const slider = document.querySelector('.services-slider');
@@ -35,11 +36,20 @@ const servicesSlider = () => {
                 marginLeft += 225;
                 activeSlide.style.marginLeft = `${marginLeft}px`;
             }
+            if (marginLeft >= minSlide) {
+                marginLeft = maxSlide;
+                activeSlide.style.cssText = `transition: all 0.2s linear 0s; min-width: 210px; margin-left: 0px;`;
+            }
+
         }
         if (target.closest('.next')) {
             if (marginLeft > maxSlide) {
                 marginLeft -= 225;
                 activeSlide.style.marginLeft = `${marginLeft}px`;
+            }
+            if (marginLeft === maxSlide) {
+                marginLeft = minSlide;
+                activeSlide.style.cssText = `transition: all 0.2s linear 0s; min-width: 210px; margin-left: 0px;`;
             }
         }
     });

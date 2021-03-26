@@ -6,7 +6,7 @@ const photoGallary = () => {
     const wrapper = document.querySelector('.gallery-slider-wrapper');
     const img = document.querySelectorAll('.img-slide-gallery');
 
-    img.forEach((item) =>{
+    img.forEach(item => {
         item.style.maxWidth = 600 + 'px';
     });
 
