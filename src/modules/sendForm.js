@@ -154,48 +154,18 @@ const sendForm = () => {
                 }));
             }
 
-            const formclubsCart = document.getElementById('card_order');
-            const clubsCartCheck = document.querySelector('.check_club-cards');
-            if (target === formclubsCart) {
-                if (clubsCartCheck.checked === true) {
-                    validCheckbox = true;
-                } else {
-                    validCheckbox = false;
-                    formclubsCart.appendChild(messageChecked);
-                }
-            }
-
-            const form2 = document.getElementById('form2'); //? freeVisit
-            const check2 = document.getElementById('check2');
-            if (target === form2) {
-                if (check2.checked === true) {
-                    validCheckbox = true;
-                } else {
-                    validCheckbox = false;
-                    form2.appendChild(messageChecked);
-                }
-            }
-
-            const form1 = document.getElementById('form1'); //? модалка перезвоните
-            const check = document.getElementById('check');
-            if (target === form1) {
-                if (check.checked === true) {
-                    validCheckbox = true;
-                } else {
-                    validCheckbox = false;
-                    form1.appendChild(messageChecked);
-                }
-            }
-
-            const bannerForm = document.getElementById('banner-form'); //? Банер форма отправки
-            const check1 = document.getElementById('check1');
-            if (target === bannerForm) {
-                if (check1.checked === true) {
-                    validCheckbox = true;
-                } else {
-                    validCheckbox = false;
-                    bannerForm.appendChild(messageChecked);
-                }
+            if (target === item) {
+                const checkForm = document.querySelectorAll('.check-form');
+                checkForm.forEach((elem) => {
+                    if (item.contains(elem)) {
+                        if (elem.checked === true) {
+                            validCheckbox = true;
+                        } else if (elem.checked !== true) {
+                            validCheckbox = false;
+                            item.appendChild(messageChecked);
+                        }
+                    }
+                });
             }
 
             if (validPhone === true && validCheckbox === true && validName === true) {
@@ -215,14 +185,14 @@ const sendForm = () => {
                         changeModal(thanksSuccess, statusSuccess);
                         setTimeout(() => {
                             resetModal();
-                        }, 3000);
+                        }, 2000);
                     })
                     .catch(error => {
                         resetModal();
                         changeModal(thanksError, statusError);
                         setTimeout(() => {
                             resetModal();
-                        }, 3000);
+                        }, 2000);
                         console.error(error);
                     });
             }
