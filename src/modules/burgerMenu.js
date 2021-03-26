@@ -8,21 +8,24 @@ const burgerMenu = () => {
 
     arrowUp.style.display = 'none';
 
-    if (width < 768) {
-        document.addEventListener('scroll', () => {
-            let scrollTop = document.documentElement.scrollTop;
-            if (scrollTop >= 200) {
-                topMenu.style.cssText = `position: fixed;`;
+    document.addEventListener('scroll', () => {
+        let scrollTop = document.documentElement.scrollTop;
+        if (width < 768) {
+            if (scrollTop >= 300) {
+                topMenu.style.cssText = `position: fixed; z-index: 1120`;
             } else {
-                topMenu.style.cssText = 'position: relative;';
+                topMenu.style.cssText = 'position: relative z-index: 1120;';
             }
+        } else if (width > 768) {
             if (scrollTop >= 300) {
                 arrowUp.style.display = 'block';
             } else {
                 arrowUp.style.display = 'none';
             }
-        });
-    }
+        }
+    });
+
+
 
 
 
