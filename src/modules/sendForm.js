@@ -157,7 +157,6 @@ const sendForm = () => {
             const formclubsCart = document.getElementById('card_order');
             const clubsCartCheck = document.querySelector('.check_club-cards');
             if (target === formclubsCart) {
-                console.log(clubsCartCheck.checked);
                 if (clubsCartCheck.checked === true) {
                     validCheckbox = true;
                 } else {
