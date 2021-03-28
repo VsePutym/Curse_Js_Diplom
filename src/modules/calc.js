@@ -1,21 +1,29 @@
 /* eslint-disable no-cond-assign */
 /* eslint-disable no-constant-condition */
 /* eslint-disable eol-last */
+
 const calc = () => {
-    const promotionalCode = 'ТЕЛО2019';
+    const promotionalCode = '1';
     const promocat = document.querySelector('.promocat');
     const price = document.getElementById('price-total');
-
+    const m = document.querySelectorAll('.m');
+    price.textContent = 2999;
     let discount = false;
+    let total = 2999;
+
+    
+
 
     document.addEventListener('click', e => {
-        const m = document.querySelectorAll('.m');
+
         const target = e.target;
 
-        let total = 0;
+
 
         const test = () => {
+
             if (discount === true) {
+                console.log(total);
                 const price = document.getElementById('price-total');
                 const percent = (total * 30) / 100;
                 let sum = total - percent;
@@ -42,6 +50,13 @@ const calc = () => {
         };
 
         const showResult = () => {
+            if(price.textContent === '2999'){
+                total = 2999;
+                discount = false;
+            }
+            // if (promocat.textContent === '') {
+                
+            // }
             test();
             promocat.addEventListener('input', e => {
                 const target = e.target;
@@ -56,24 +71,23 @@ const calc = () => {
             });
         };
 
-
-        m.forEach(item => {
-            if (item.style.backgroundColor = '#ffd11a;') {
-                if (target.matches('#m1')) {
-                    total = 2999;
-                    showResult();
-                } else if (target.matches('#m2')) {
-                    total = 14990;
-                    showResult();
-                } else if (target.matches('#m3')) {
-                    total = 21990;
-                    showResult();
-                } else if (target.matches('#m4')) {
-                    total = 24990;
-                    showResult();
-                }
-            }
-        });
+        if (target.matches('#m1')) {
+            total = 2999;
+            showResult();
+            // 
+        } else if (target.matches('#m2')) {
+            total = 14990;
+            showResult();
+            // test();
+        } else if (target.matches('#m3')) {
+            total = 21990;
+            showResult();
+            test();
+        } else if (target.matches('#m4')) {
+            total = 24990;
+            // test();
+            showResult();
+        }
 
         if (target === promocat) {
             showResult();

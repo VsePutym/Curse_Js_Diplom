@@ -13,6 +13,8 @@ const sendForm = () => {
     const formText = document.querySelectorAll('.form-text');
     const chooseClub = document.querySelectorAll('.check-footer');
     const popup = document.querySelectorAll('.popup');
+    const timeCard = document.querySelectorAll('.m');
+
 
     const statusMessage = document.createElement('div'); //? message for loaded and error, success type not for modal
     statusMessage.classList.add('status');
@@ -58,6 +60,10 @@ const sendForm = () => {
     let validCheckbox = false;
 
     const resetModal = () => {
+        const priceTotal = document.getElementById('price-total');
+        priceTotal.textContent = 2999;
+        const m1 = document.getElementById('m1');
+        m1.checked = true;
 
         formText.forEach(item => { //? очищаем инпуты
             item.value = '';
@@ -70,6 +76,10 @@ const sendForm = () => {
         popup.forEach(item => {
             item.style.display = 'none';
         });
+
+        validName = false;
+        validPhone = false;
+        validCheckbox = false;
     };
 
 
