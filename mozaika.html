@@ -22,10 +22,9 @@
                     </div>
                     <div class="club-select">
                         <div class="clubs-list">
-                            <p>Выбрать клуб</p>
-                            <ul>
-                                <li><a href="mozaika.html">Тело мозаика</a></li>
-                                <li><a href="schelkovo.html">Тело щелково</a></li>
+                            <p class="clubs">Тело мозаика</p>
+                            <ul id="changeGym">
+                                <li><a id="gym" href="./schelkovo.html">Тело щелково</a></li>
                             </ul>
                         </div>
                     </div>
@@ -34,7 +33,7 @@
                     <div class="free-visit">
                         <img src="images/head-icon.png" alt="">
                         <p><a href="#" class="open-popup" data-popup="#free_visit_form">Записаться на <br>бесплатный
-                            визит</a></p>
+                                визит</a></p>
                     </div>
                     <div class="call">
                         <div class="our-phone">
@@ -53,12 +52,12 @@
                 <li class="scroll"><a href="#clubs">Клубы</a></li>
                 <li class="scroll"><a href="#services">Услуги</a></li>
                 <li class="scroll"><a href="#cards">Клубные карты</a></li>
-                <li class=""><a href="#table">Расписание</a></li>
+                <li class="scroll"><a href="#table">Расписание</a></li>
                 <li class="scroll"><a href="#gallery">Галерея</a></li>
                 <li class="scroll"><a href="#footer">Контакты</a></li>
             </ul>
             <div class="menu-button hidden-large">
-                <img src="images/menu-button.png" alt="">
+                <img class="iconBurger" src="images/menu-button.png" alt="">
             </div>
         </div>
     </nav>
@@ -348,55 +347,65 @@
     <div class="wrapper">
         <h2>услуги наших клубов</h2>
         <div class="services-slider">
-            <div class="slide">
+            <div class="slide services_slide services_slide-active">
                 <img src="images/services-slider/akva.jpg" alt="Аква территория">
                 <h6>Аква территория</h6>
                 <p>Плавание полезно для людей абсолютно любой возрастной категории. Бассейн 5 на 6 метров.</p>
             </div>
-            <div class="slide">
+            <div class="slide services_slide">
                 <img src="images/services-slider/vesy.jpg" alt="Зона свободных весов">
                 <h6>Зона свободных весов</h6>
                 <p>Здесь есть всё необходимое, чтобы достичь максимальных результатов</p>
             </div>
-            <div class="slide">
+            <div class="slide services_slide">
                 <img src="images/services-slider/TRX.jpg" alt="Зона TRX">
                 <h6>Зона TRX</h6>
                 <p>Укрепление суставов и связок, увеличение мышечной массы, выносливости и гибкости</p>
             </div>
-            <div class="slide">
+            <div class="slide services_slide">
                 <img src="images/services-slider/kardio.jpg" alt="Кардиозона">
                 <h6>Кардиозона</h6>
                 <p>Эффективное снижение веса и улучшение работы сердечно-сосудистой системы</p>
             </div>
-            <div class="slide">
+            <div class="slide services_slide">
                 <img src="images/services-slider/yoga.jpg" alt="Йога">
                 <h6>Йога</h6>
                 <p>Йога - идеальны не только физическая форма, но и эмоциональное состояние</p>
             </div>
-            <div class="slide">
+            <div class="slide services_slide">
                 <img src="images/services-slider/akva.jpg" alt="Аква территория">
                 <h6>Аква территория</h6>
                 <p>Плавание полезно для людей абсолютно любой возрастной категории. Бассейн 5 на 6 метров.</p>
             </div>
-            <div class="slide">
+            <div class="slide services_slide">
                 <img src="images/services-slider/vesy.jpg" alt="Зона свободных весов">
                 <h6>Зона свободных весов</h6>
                 <p>Здесь есть всё необходимое, чтобы достичь максимальных результатов</p>
             </div>
-            <div class="slide">
+            <div class="slide services_slide">
                 <img src="images/services-slider/TRX.jpg" alt="Зона TRX">
                 <h6>Зона TRX</h6>
                 <p>Укрепление суставов и связок, увеличение мышечной массы, выносливости и гибкости</p>
             </div>
-            <div class="slide">
+            <div class="slide services_slide">
                 <img src="images/services-slider/kardio.jpg" alt="Кардиозона">
                 <h6>Кардиозона</h6>
                 <p>Эффективное снижение веса и улучшение работы сердечно-сосудистой системы</p>
             </div>
-            <div class="slide">
+            <div class="slide services_slide">
                 <img src="images/services-slider/yoga.jpg" alt="Йога">
                 <h6>Йога</h6>
                 <p>Йога - идеальны не только физическая форма, но и эмоциональное состояние</p>
+            </div>
+            <div class="slider-arrow prev">
+                <span>
+                    <i class="fa fa-angle-left"></i>
+                </span>
+            </div>
+            <div class="slider-arrow next">
+                <span>
+                    <i class="fa fa-angle-right"></i>
+                </span>
             </div>
         </div>
     </div>
@@ -405,17 +414,17 @@
     <div class="wrapper">
         <h2>Записаться на бесплатный&nbsp;визит</h2>
         <div class="form-wrapper">
-            <form name="banner-form" id="banner-form" action="#" method="post">
-                <input type="hidden" name="form_name" value=" Записаться на визит">
-                <input name="name" type="text" required placeholder="Ваше имя...">
-                <input type="tel" name="phone" id="phone" required placeholder="Ваш номер телефона...">
-                <button name="send" class="btn" type="submit">Записаться</button>
-                <p class="personal-data">
-                    <input type="checkbox" required id="check1"><label for="check1">Я согласен на обработку персональных
-                    данных</label>
-                </p>
+            <form  name="banner-form" id="banner-form" action="#" method="post">
+                    <input type="hidden" name="form_name" value=" Записаться на визит">
+                    <input name="name" class="form-name form-text" type="text" required placeholder="Ваше имя...">
+                    <input type="tel" class="form-tel form-text" name="phone" id="phone" required placeholder="Ваш номер телефона...">
+                    <button name="send" class="btn" type="submit">Записаться</button>
+                    <p class="personal-data" id="person-banner">
+                        <input type="checkbox" class="check-form" id="check1"><label for="check1">Я согласен на обработку
+                            персональных
+                            данных</label>
+                    </p>
             </form>
-
         </div>
     </div>
 </section>

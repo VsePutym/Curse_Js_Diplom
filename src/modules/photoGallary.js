@@ -29,11 +29,6 @@ const photoGallary = () => {
         if (item) {
             appData.addNewClass();
         }
-        // if (item.closest('.slide slider-gallery slick-active')) {
-        //     item.style.display = 'block';
-        // } else {
-        //     item.style.display = 'none';
-        // }
     });
 
     const dot = document.querySelectorAll('.dot');
@@ -43,12 +38,10 @@ const photoGallary = () => {
     let interval;
 
     const prevSlide = (elem, i, strClass) => {
-        // elem[i].style.display = 'none';
         elem[i].classList.remove(strClass);
     };
 
     const nextSlide = (elem, i, strClass) => {
-        // elem[i].style.display = 'block';
         elem[i].classList.add(strClass);
     };
 
