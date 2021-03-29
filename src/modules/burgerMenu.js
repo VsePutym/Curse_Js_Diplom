@@ -13,8 +13,10 @@ const burgerMenu = () => {
         if (width < 768) {
             if (scrollTop >= 300) {
                 topMenu.style.cssText = `position: fixed; z-index: 1120`;
+                arrowUp.style.display = 'block';
             } else {
                 topMenu.style.cssText = 'position: relative z-index: 1120;';
+                arrowUp.style.display = 'none';
             }
         } else if (width > 768) {
             if (scrollTop >= 300) {

@@ -13,7 +13,7 @@ import sendForm from './modules/sendForm';
 import mainSlider from './modules/mainSlider';
 import servicesSlider from './modules/servicesSlider';
 import photoGallary from './modules/photoGallary';
-import calc from './modules/calc';
+import test2 from './modules/calc';
 import burgerMenu from './modules/burgerMenu';
 
 
@@ -23,5 +23,5 @@ showPopup();
 mainSlider();
 servicesSlider();
 photoGallary();
-calc();
+test2.calc();
 burgerMenu();

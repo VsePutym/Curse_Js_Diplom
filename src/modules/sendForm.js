@@ -13,7 +13,6 @@ const sendForm = () => {
     const formText = document.querySelectorAll('.form-text');
     const chooseClub = document.querySelectorAll('.check-footer');
     const popup = document.querySelectorAll('.popup');
-    const timeCard = document.querySelectorAll('.m');
 
 
     const statusMessage = document.createElement('div'); //? message for loaded and error, success type not for modal
@@ -59,9 +58,17 @@ const sendForm = () => {
     let validPhone = false;
     let validCheckbox = false;
 
+
     const resetModal = () => {
         const priceTotal = document.getElementById('price-total');
-        priceTotal.textContent = 2999;
+        const mozaika = document.getElementById('card_leto_mozaika');
+
+        if (priceTotal) {
+            priceTotal.textContent = 1999;
+        }
+        if (mozaika) {
+            mozaika.checked = true;
+        }
         const m1 = document.getElementById('m1');
         m1.checked = true;
 
@@ -81,6 +88,7 @@ const sendForm = () => {
         validPhone = false;
         validCheckbox = false;
     };
+
 
 
     const changeModal = (message, statusMessage) => {
@@ -166,7 +174,7 @@ const sendForm = () => {
 
             if (target === item) {
                 const checkForm = document.querySelectorAll('.check-form');
-                checkForm.forEach((elem) => {
+                checkForm.forEach(elem => {
                     if (item.contains(elem)) {
                         if (elem.checked === true) {
                             validCheckbox = true;
